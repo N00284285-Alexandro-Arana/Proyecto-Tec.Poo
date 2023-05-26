@@ -1,2 +1,5 @@
 # Proyecto-Tec.Poo
-Sistema de Reservación de CItas para las Losas Deportivas
+Sistema de Reservación de Citas para las Losas Deportivas
+
+Problemática:
+
