@@ -65,6 +65,11 @@ public class JFrameMetodoPago extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservacionlosadeportiva/pantallas/visa.png"))); // NOI18N
 
         jButton1.setText("RESERVAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservacionlosadeportiva/pantallas/salida-de-la-puerta.png"))); // NOI18N
 
@@ -128,6 +133,15 @@ public class JFrameMetodoPago extends javax.swing.JFrame {
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFrameReservaciones Reservaciones = new JFrameReservaciones();
+        Reservaciones.setLocationRelativeTo(this);
+        Reservaciones.setVisible(true);
+        this.setVisible(false);
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

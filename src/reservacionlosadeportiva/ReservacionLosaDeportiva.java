@@ -5,6 +5,8 @@
  */
 package reservacionlosadeportiva;
 
+import reservacionlosadeportiva.pantallas.JFrameUserAdmin;
+
 /**
  *
  * @author Piero354
@@ -15,7 +17,10 @@ public class ReservacionLosaDeportiva {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        JFrameUserAdmin Frame = new JFrameUserAdmin();
+        Frame.setLocationRelativeTo(null); //Centra Formulario
+        Frame.setVisible(true);
+        
     }
     
 }

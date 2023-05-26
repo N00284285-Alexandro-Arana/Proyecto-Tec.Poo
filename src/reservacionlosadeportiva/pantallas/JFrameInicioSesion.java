@@ -77,6 +77,11 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
         btn_crear_cuenta.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btn_crear_cuenta.setForeground(new java.awt.Color(0, 0, 255));
         btn_crear_cuenta.setText("CREAR CUENTA");
+        btn_crear_cuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_crear_cuentaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,8 +156,19 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
-        this.dispose();
+        JFrameLoginUsuario LoginUsuario = new JFrameLoginUsuario();
+        LoginUsuario.setLocationRelativeTo(this);
+        LoginUsuario.setVisible(true);
+        this.setVisible(false);
+        
     }//GEN-LAST:event_btn_salirActionPerformed
+
+    private void btn_crear_cuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crear_cuentaActionPerformed
+        JFrameLoginUsuario LoginUsuario = new JFrameLoginUsuario();
+        LoginUsuario.setLocationRelativeTo(this);
+        LoginUsuario.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_crear_cuentaActionPerformed
 
     /**
      * @param args the command line arguments

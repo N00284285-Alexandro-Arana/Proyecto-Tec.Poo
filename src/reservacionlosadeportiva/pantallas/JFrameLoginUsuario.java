@@ -70,6 +70,11 @@ public class JFrameLoginUsuario extends javax.swing.JFrame {
 
         btn_crearcuenta.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btn_crearcuenta.setText("CREAR CUENTA");
+        btn_crearcuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_crearcuentaActionPerformed(evt);
+            }
+        });
 
         lbl_no_contra.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         lbl_no_contra.setForeground(new java.awt.Color(51, 51, 255));
@@ -152,12 +157,23 @@ public class JFrameLoginUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_no_contraMouseClicked
 
     private void btn_iniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarsesionActionPerformed
-        // TODO add your handling code here:
+        JFrameReservaciones Reservaciones = new JFrameReservaciones();
+        Reservaciones.setLocationRelativeTo(this);//Centra
+        Reservaciones.setVisible(true);
+        this.setVisible(false); //Oculta
+        
     }//GEN-LAST:event_btn_iniciarsesionActionPerformed
 
     private void txt_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_usernameActionPerformed
+
+    private void btn_crearcuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearcuentaActionPerformed
+        JFrameInicioSesion CrearCuenta = new JFrameInicioSesion();
+        CrearCuenta.setLocationRelativeTo(this); //Centra
+        CrearCuenta.setVisible(true);
+        this.setVisible(false); //Oculta
+    }//GEN-LAST:event_btn_crearcuentaActionPerformed
 
     /**
      * @param args the command line arguments

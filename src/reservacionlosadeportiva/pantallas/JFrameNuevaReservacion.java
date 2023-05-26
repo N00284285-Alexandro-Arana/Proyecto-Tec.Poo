@@ -40,10 +40,9 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
         txt_telefono = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         btn_guardar = new javax.swing.JButton();
-        btn_regresar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txt_telefono1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btn_Regresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,13 +79,14 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
             }
         });
 
-        btn_regresar.setBackground(new java.awt.Color(255, 51, 51));
-        btn_regresar.setForeground(new java.awt.Color(255, 51, 51));
-        btn_regresar.setText("Regresar");
-
         jLabel8.setText("DNI:");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservacionlosadeportiva/pantallas/salida-de-la-puerta.png"))); // NOI18N
+        btn_Regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservacionlosadeportiva/pantallas/salida-de-la-puerta.png"))); // NOI18N
+        btn_Regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,17 +118,15 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                             .addComponent(cmb_centros, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmb_horarios_dispo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(28, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(btn_regresar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_guardar)
-                .addGap(50, 50, 50))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addComponent(btn_Regresar))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(btn_guardar)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +135,7 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1))
-                    .addComponent(jButton1))
+                    .addComponent(btn_Regresar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -167,11 +165,9 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(cmb_horarios_dispo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_regresar)
-                    .addComponent(btn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addComponent(btn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,8 +178,18 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
     }//GEN-LAST:event_cmb_centrosActionPerformed
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-        // TODO add your handling code here:
+        JFrameMetodoPago MetodoPago = new JFrameMetodoPago();
+        MetodoPago.setLocationRelativeTo(this);
+        MetodoPago.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_guardarActionPerformed
+
+    private void btn_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarActionPerformed
+       JFrameReservaciones Reservaciones = new JFrameReservaciones();
+        Reservaciones.setLocationRelativeTo(this);
+        Reservaciones.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_RegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,11 +228,10 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Regresar;
     private javax.swing.JButton btn_guardar;
-    private javax.swing.JButton btn_regresar;
     private javax.swing.JComboBox<String> cmb_centros;
     private javax.swing.JComboBox<String> cmb_horarios_dispo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

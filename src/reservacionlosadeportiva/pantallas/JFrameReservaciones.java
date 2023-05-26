@@ -54,6 +54,11 @@ public class JFrameReservaciones extends javax.swing.JFrame {
         jScrollPane1.setViewportView(List_Reservaciones);
 
         btn_agregar_reservacion.setText("AGREGAR RESERVACION");
+        btn_agregar_reservacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregar_reservacionActionPerformed(evt);
+            }
+        });
 
         btn_quitar_reservacion.setText("QUITAR RESERVACION");
 
@@ -167,8 +172,20 @@ public class JFrameReservaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        JFrameSoporteTecnico Soporte = new JFrameSoporteTecnico();
+        Soporte.setLocationRelativeTo(this);
+        Soporte.setVisible(true);
+        this.setVisible(false);
+               
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btn_agregar_reservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_reservacionActionPerformed
+        JFrameNuevaReservacion NuevaReservacion = new JFrameNuevaReservacion();
+        NuevaReservacion.setLocationRelativeTo(this);
+        NuevaReservacion.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btn_agregar_reservacionActionPerformed
 
     /**
      * @param args the command line arguments

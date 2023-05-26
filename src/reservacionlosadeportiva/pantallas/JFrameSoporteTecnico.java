@@ -76,6 +76,11 @@ public class JFrameSoporteTecnico extends javax.swing.JFrame {
         jLabel11.setText("955470077");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservacionlosadeportiva/pantallas/salida-de-la-puerta.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,6 +144,14 @@ public class JFrameSoporteTecnico extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFrameReservaciones Reservaciones = new JFrameReservaciones();
+        Reservaciones.setLocationRelativeTo(this);//Centra
+        Reservaciones.setVisible(true);
+        this.setVisible(false); //Oculta
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
