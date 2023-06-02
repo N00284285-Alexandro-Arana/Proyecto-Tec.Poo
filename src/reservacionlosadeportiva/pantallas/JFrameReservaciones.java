@@ -32,12 +32,12 @@ public class JFrameReservaciones extends javax.swing.JFrame {
         List_Reservaciones = new javax.swing.JList<>();
         btn_agregar_reservacion = new javax.swing.JButton();
         btn_quitar_reservacion = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_regresar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        btn_actualizar_lista = new javax.swing.JButton();
+        btn_buscar = new javax.swing.JButton();
+        txt_buscar = new javax.swing.JTextField();
+        btn_soporte = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -53,6 +53,7 @@ public class JFrameReservaciones extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(List_Reservaciones);
 
+        btn_agregar_reservacion.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btn_agregar_reservacion.setText("AGREGAR RESERVACION");
         btn_agregar_reservacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,26 +61,35 @@ public class JFrameReservaciones extends javax.swing.JFrame {
             }
         });
 
+        btn_quitar_reservacion.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btn_quitar_reservacion.setText("QUITAR RESERVACION");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservacionlosadeportiva/pantallas/salida-de-la-puerta.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservacionlosadeportiva/pantallas/salida-de-la-puerta.png"))); // NOI18N
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_regresarActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Reservaciones ya hechas:");
 
-        jButton1.setText("ACTUALIZAR LISTA");
+        btn_actualizar_lista.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btn_actualizar_lista.setText("ACTUALIZAR LISTA");
 
-        jButton2.setText("BUSCAR ");
-
-        jButton4.setText("CONTACO SOPORTE");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btn_buscar.setText("BUSCAR ");
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btn_buscarActionPerformed(evt);
+            }
+        });
+
+        btn_soporte.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btn_soporte.setText("CONTACO SOPORTE");
+        btn_soporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_soporteActionPerformed(evt);
             }
         });
 
@@ -98,32 +108,36 @@ public class JFrameReservaciones extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton2)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
-                                .addComponent(jLabel4)))
-                        .addGap(30, 30, 30)
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                                        .addComponent(btn_buscar)
+                                        .addGap(57, 57, 57)))
+                                .addComponent(jLabel4)
+                                .addGap(1, 1, 1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addGap(58, 58, 58)
-                                .addComponent(jButton3))
+                                .addGap(42, 42, 42)
+                                .addComponent(btn_regresar))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(btn_agregar_reservacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btn_quitar_reservacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(btn_actualizar_lista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
-                                        .addComponent(jButton4)))
+                                        .addComponent(btn_soporte)))
                                 .addGap(10, 10, 10)))))
                 .addContainerGap())
         );
@@ -132,21 +146,22 @@ public class JFrameReservaciones extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3)
+                            .addComponent(btn_regresar)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton2))))))
-                .addGap(12, 12, 12)
+                                    .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn_buscar))))
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jLabel2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -155,29 +170,29 @@ public class JFrameReservaciones extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btn_quitar_reservacion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
+                        .addComponent(btn_actualizar_lista)
                         .addGap(15, 15, 15)
-                        .addComponent(jButton4))
+                        .addComponent(btn_soporte))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_regresarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btn_soporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_soporteActionPerformed
         JFrameSoporteTecnico Soporte = new JFrameSoporteTecnico();
         Soporte.setLocationRelativeTo(this);
         Soporte.setVisible(true);
         this.setVisible(false);
                
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btn_soporteActionPerformed
 
     private void btn_agregar_reservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_reservacionActionPerformed
         JFrameNuevaReservacion NuevaReservacion = new JFrameNuevaReservacion();
@@ -186,6 +201,10 @@ public class JFrameReservaciones extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_btn_agregar_reservacionActionPerformed
+
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_buscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,17 +243,17 @@ public class JFrameReservaciones extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> List_Reservaciones;
+    private javax.swing.JButton btn_actualizar_lista;
     private javax.swing.JButton btn_agregar_reservacion;
+    private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_quitar_reservacion;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btn_regresar;
+    private javax.swing.JButton btn_soporte;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,6 +9,10 @@ package entidades;
  *
  * @author Piero354
  */
-public class Usuario {
+public class Usuario extends DatosPersona{
+    
+    String correo;
+    String username;
+    String contraseña;
     
 }

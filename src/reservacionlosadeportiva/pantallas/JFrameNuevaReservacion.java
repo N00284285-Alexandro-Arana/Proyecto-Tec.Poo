@@ -31,7 +31,7 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         cmb_centros = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        cmb_horarios_dispo = new javax.swing.JComboBox<>();
+        cmb_horarios_disponibles = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         txt_nombres = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -39,10 +39,10 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txt_telefono = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        btn_guardar = new javax.swing.JButton();
+        btn_siguiente = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        txt_telefono1 = new javax.swing.JTextField();
-        btn_Regresar = new javax.swing.JButton();
+        txt_dni = new javax.swing.JTextField();
+        btn_regresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,7 +51,7 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
 
         jLabel2.setText("Centros:");
 
-        cmb_centros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmb_centros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SJL - ZARATE", "SJL - LOS JARDINES", "SJL - LAS FLORES", "SJL - SAN MARTIN", "SJL - SAN CARLOS" }));
         cmb_centros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmb_centrosActionPerformed(evt);
@@ -60,7 +60,7 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
 
         jLabel3.setText("Horarios");
 
-        cmb_horarios_dispo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmb_horarios_disponibles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08:00 - 09:00", "09:00 - 10:00", "10:00 - 11:00", "11:00 - 12:00", "12:00 - 13:00", "15:00 - 16:00", "16:00 - 17:00", "17:00 - 18:00" }));
 
         jLabel4.setText("Nombres:");
 
@@ -70,21 +70,21 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
 
         jLabel7.setText("Disponibles:");
 
-        btn_guardar.setBackground(new java.awt.Color(51, 51, 255));
-        btn_guardar.setForeground(new java.awt.Color(0, 0, 255));
-        btn_guardar.setText("Siguiente");
-        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+        btn_siguiente.setBackground(new java.awt.Color(255, 255, 255));
+        btn_siguiente.setForeground(new java.awt.Color(0, 0, 255));
+        btn_siguiente.setText("Siguiente");
+        btn_siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_guardarActionPerformed(evt);
+                btn_siguienteActionPerformed(evt);
             }
         });
 
         jLabel8.setText("DNI:");
 
-        btn_Regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservacionlosadeportiva/pantallas/salida-de-la-puerta.png"))); // NOI18N
-        btn_Regresar.addActionListener(new java.awt.event.ActionListener() {
+        btn_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservacionlosadeportiva/pantallas/salida-de-la-puerta.png"))); // NOI18N
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RegresarActionPerformed(evt);
+                btn_regresarActionPerformed(evt);
             }
         });
 
@@ -106,7 +106,7 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                             .addComponent(txt_nombres)
                             .addComponent(txt_apellidos)
                             .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_telefono1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -114,18 +114,18 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel3))
                         .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmb_centros, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmb_horarios_dispo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmb_horarios_disponibles, 0, 140, Short.MAX_VALUE)
+                            .addComponent(cmb_centros, 0, 1, Short.MAX_VALUE))))
                 .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_Regresar))
+                .addComponent(btn_regresar))
             .addGroup(layout.createSequentialGroup()
                 .addGap(118, 118, 118)
-                .addComponent(btn_guardar)
+                .addComponent(btn_siguiente)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -135,7 +135,7 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1))
-                    .addComponent(btn_Regresar))
+                    .addComponent(btn_regresar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -150,7 +150,7 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_telefono1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -164,9 +164,9 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                         .addComponent(jLabel7))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(cmb_horarios_dispo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmb_horarios_disponibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24)
-                .addComponent(btn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_siguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -177,19 +177,19 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmb_centrosActionPerformed
 
-    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+    private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
         JFrameMetodoPago MetodoPago = new JFrameMetodoPago();
         MetodoPago.setLocationRelativeTo(this);
         MetodoPago.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_guardarActionPerformed
+    }//GEN-LAST:event_btn_siguienteActionPerformed
 
-    private void btn_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarActionPerformed
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
        JFrameReservaciones Reservaciones = new JFrameReservaciones();
         Reservaciones.setLocationRelativeTo(this);
         Reservaciones.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_RegresarActionPerformed
+    }//GEN-LAST:event_btn_regresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,10 +228,10 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_Regresar;
-    private javax.swing.JButton btn_guardar;
+    private javax.swing.JButton btn_regresar;
+    private javax.swing.JButton btn_siguiente;
     private javax.swing.JComboBox<String> cmb_centros;
-    private javax.swing.JComboBox<String> cmb_horarios_dispo;
+    private javax.swing.JComboBox<String> cmb_horarios_disponibles;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -241,8 +241,8 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField txt_apellidos;
+    private javax.swing.JTextField txt_dni;
     private javax.swing.JTextField txt_nombres;
     private javax.swing.JTextField txt_telefono;
-    private javax.swing.JTextField txt_telefono1;
     // End of variables declaration//GEN-END:variables
 }

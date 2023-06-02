@@ -35,8 +35,8 @@ public class JFrameLoginUsuario extends javax.swing.JFrame {
         txt_password = new javax.swing.JTextField();
         btn_iniciarsesion = new javax.swing.JButton();
         btn_crearcuenta = new javax.swing.JButton();
-        lbl_no_contra = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lbl_no_contraseña = new javax.swing.JLabel();
+        btn_salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(39, 28));
@@ -76,21 +76,28 @@ public class JFrameLoginUsuario extends javax.swing.JFrame {
             }
         });
 
-        lbl_no_contra.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        lbl_no_contra.setForeground(new java.awt.Color(51, 51, 255));
-        lbl_no_contra.setText("No me acuerdo mi contraseña :(");
-        lbl_no_contra.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbl_no_contraseña.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lbl_no_contraseña.setForeground(new java.awt.Color(51, 51, 255));
+        lbl_no_contraseña.setText("No me acuerdo mi contraseña :(");
+        lbl_no_contraseña.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_no_contraMouseClicked(evt);
+                lbl_no_contraseñaMouseClicked(evt);
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservacionlosadeportiva/pantallas/exit.png"))); // NOI18N
+        btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservacionlosadeportiva/pantallas/exit.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_salir))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -112,22 +119,16 @@ public class JFrameLoginUsuario extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btn_crearcuenta)
                                             .addComponent(btn_iniciarsesion)))
-                                    .addComponent(lbl_no_contra))))
-                        .addGap(0, 99, Short.MAX_VALUE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(jLabel2)
+                                    .addComponent(lbl_no_contraseña)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(jLabel2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1)
+                .addComponent(btn_salir)
                 .addGap(1, 1, 1)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -145,16 +146,16 @@ public class JFrameLoginUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btn_crearcuenta)
                 .addGap(18, 18, 18)
-                .addComponent(lbl_no_contra)
+                .addComponent(lbl_no_contraseña)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lbl_no_contraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_no_contraMouseClicked
+    private void lbl_no_contraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_no_contraseñaMouseClicked
         this.dispose();
-    }//GEN-LAST:event_lbl_no_contraMouseClicked
+    }//GEN-LAST:event_lbl_no_contraseñaMouseClicked
 
     private void btn_iniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarsesionActionPerformed
         JFrameReservaciones Reservaciones = new JFrameReservaciones();
@@ -214,12 +215,12 @@ public class JFrameLoginUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_crearcuenta;
     private javax.swing.JButton btn_iniciarsesion;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_salir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel lbl_no_contra;
+    private javax.swing.JLabel lbl_no_contraseña;
     private javax.swing.JTextField txt_password;
     private javax.swing.JTextField txt_username;
     // End of variables declaration//GEN-END:variables

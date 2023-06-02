@@ -9,8 +9,10 @@ package entidades;
  *
  * @author Piero354
  */
-public class Cliente extends DatosPersona{
-   
-    String DNI;
-            
+public class DatosPersona {
+    
+    String nombre;
+    String apellido;
+    int telefono;
+    
 }

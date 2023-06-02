@@ -9,8 +9,9 @@ package entidades;
  *
  * @author Piero354
  */
-public class Cliente extends DatosPersona{
-   
-    String DNI;
-            
+public class Developer {
+    
+    String username_admin;
+    String password_admin;
+    
 }
