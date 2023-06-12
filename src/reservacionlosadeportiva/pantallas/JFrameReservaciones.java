@@ -5,17 +5,26 @@
  */
 package reservacionlosadeportiva.pantallas;
 
+import entidades.Cliente;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Piero354
  */
 public class JFrameReservaciones extends javax.swing.JFrame {
 
+    
+    List<Cliente> clientes = new ArrayList<>();
+    DefaultListModel modeloLista = new DefaultListModel();
     /**
      * Creates new form JFrameReservaciones
      */
     public JFrameReservaciones() {
         initComponents();
+        List_Reservaciones.setModel(modeloLista);
     }
 
     /**
@@ -40,6 +49,8 @@ public class JFrameReservaciones extends javax.swing.JFrame {
         btn_soporte = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +87,11 @@ public class JFrameReservaciones extends javax.swing.JFrame {
 
         btn_actualizar_lista.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btn_actualizar_lista.setText("ACTUALIZAR LISTA");
+        btn_actualizar_lista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_actualizar_listaActionPerformed(evt);
+            }
+        });
 
         btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btn_buscar.setText("BUSCAR ");
@@ -97,6 +113,10 @@ public class JFrameReservaciones extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservacionlosadeportiva/pantallas/variante-de-balon-de-futbol.png"))); // NOI18N
 
+        jLabel5.setText("...");
+
+        jLabel6.setText("Total");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,18 +131,21 @@ public class JFrameReservaciones extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel1)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                                        .addComponent(btn_buscar)
-                                        .addGap(57, 57, 57)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btn_buscar)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel4)
                                 .addGap(1, 1, 1))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel5))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -175,8 +198,12 @@ public class JFrameReservaciones extends javax.swing.JFrame {
                         .addComponent(btn_soporte))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -195,7 +222,7 @@ public class JFrameReservaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_soporteActionPerformed
 
     private void btn_agregar_reservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_reservacionActionPerformed
-        JFrameNuevaReservacion NuevaReservacion = new JFrameNuevaReservacion();
+        JFrameNuevaReservacion NuevaReservacion = new JFrameNuevaReservacion(this);
         NuevaReservacion.setLocationRelativeTo(this);
         NuevaReservacion.setVisible(true);
         this.setVisible(false);
@@ -206,6 +233,26 @@ public class JFrameReservaciones extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_buscarActionPerformed
 
+    private void btn_actualizar_listaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizar_listaActionPerformed
+        // TODO add your handling code here:
+        actulizarList();
+    }//GEN-LAST:event_btn_actualizar_listaActionPerformed
+    
+    void actulizarList(){
+        modeloLista.removeAllElements();
+        for(Cliente listaCliente: clientes) {
+            modeloLista.addElement(listaCliente.mostrarDatosClientes());
+        }
+    }
+    
+    void setCliente(Cliente cliente){
+        clientes.add(cliente);
+        actulizarList();
+    }
+    
+    
+
+    
     /**
      * @param args the command line arguments
      */
@@ -253,6 +300,8 @@ public class JFrameReservaciones extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables

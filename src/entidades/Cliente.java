@@ -10,7 +10,27 @@ package entidades;
  * @author Piero354
  */
 public class Cliente extends DatosPersona{
-   
-    String DNI;
-            
+    
+    private String dni;
+ 
+    /**
+     * @return the dni
+     */
+    public String getDni() {
+        return dni;
+    }
+
+    /**
+     * @param dni the dni to set
+     */
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+    
+    public String mostrarDatosClientes(){
+        return this.getDni()+" | "+this.getNombre()+" | "
+                +this.getApellido()+" | "+this.getTelefono();
+    }
+    
+    
 }

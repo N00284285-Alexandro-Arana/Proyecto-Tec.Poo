@@ -5,12 +5,16 @@
  */
 package reservacionlosadeportiva.pantallas;
 
+import entidades.Developer;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Piero354
  */
 public class JFrameUserAdmin extends javax.swing.JFrame {
 
+    private Developer developer;
     /**
      * Creates new form JFrameUserAdmin
      */
@@ -64,17 +68,17 @@ public class JFrameUserAdmin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_usuario_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_contraseña_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(28, 28, 28)
                         .addComponent(btn_iniciarsesion_admin)
-                        .addGap(48, 48, 48)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -119,12 +123,27 @@ public class JFrameUserAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_iniciarsesion_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarsesion_adminActionPerformed
-        JFrameLoginUsuario LoginUsuario = new JFrameLoginUsuario();
-        LoginUsuario.setLocationRelativeTo(this);
-        LoginUsuario.setVisible(true);
-        this.setVisible(false);
+        
+        String usu = txt_usuario_admin.getText();
+        String pass = txt_contraseña_admin.getText();        
+        if (Developer.username_admin.equals(usu)) {
+            if (Developer.password_admin.equals(pass)) {
+                JFrameLoginUsuario LoginUsuario = new JFrameLoginUsuario();
+                LoginUsuario.setLocationRelativeTo(this);
+                LoginUsuario.setVisible(true);
+                this.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(null,"Contraseña Incorrecta","Error",JOptionPane.ERROR_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Usuario Incorrecto","Error",JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
     }//GEN-LAST:event_btn_iniciarsesion_adminActionPerformed
 
+    
+    
     /**
      * @param args the command line arguments
      */

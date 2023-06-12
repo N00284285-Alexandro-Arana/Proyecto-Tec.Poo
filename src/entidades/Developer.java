@@ -11,7 +11,6 @@ package entidades;
  */
 public class Developer {
     
-    String username_admin;
-    String password_admin;
-    
+    public static String username_admin = "Admin2023";
+    public static String password_admin = "123456";    
 }
