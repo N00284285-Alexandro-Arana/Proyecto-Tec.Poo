@@ -6,6 +6,9 @@
 package reservacionlosadeportiva.pantallas;
 
 import entidades.Cliente;
+import entidades.Reservacion;
+//import entidades.Reservacion;
+import javax.swing.DefaultListModel;
 
 
 /**
@@ -15,7 +18,9 @@ import entidades.Cliente;
 public class JFrameNuevaReservacion extends javax.swing.JFrame {
 
     private Cliente cliente;
+    private Reservacion reservacion;
     private JFrameReservaciones padre;
+    DefaultListModel modeloLista = new DefaultListModel();
     
     /**
      * Creates new form JFrameAgregarReservacion
@@ -52,13 +57,13 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
         txt_dni = new javax.swing.JTextField();
         btn_regresar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmb_forma_paog = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_cod_cancha = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txt_tarifa = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,7 +100,7 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
 
         jLabel8.setText("DNI:");
 
-        btn_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservacionlosadeportiva/pantallas/salida-de-la-puerta.png"))); // NOI18N
+        btn_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida-de-la-puerta.png"))); // NOI18N
         btn_regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_regresarActionPerformed(evt);
@@ -104,7 +109,7 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
 
         jLabel9.setText("Forma de Pago:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Yape o Plin", "Visa" }));
+        cmb_forma_paog.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Yape o Plin", "Visa" }));
 
         jLabel10.setText("Codigo de Cancha:");
 
@@ -144,7 +149,7 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                                     .addComponent(jLabel14)
                                     .addComponent(jLabel9))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmb_forma_paog, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel10)
@@ -156,10 +161,10 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(cmb_centros, 0, 131, Short.MAX_VALUE)
-                                        .addComponent(jTextField1)
+                                        .addComponent(txt_cod_cancha)
                                         .addComponent(cmb_horarios_disponibles, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txt_tarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel11)
@@ -189,7 +194,7 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                             .addComponent(txt_apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
                             .addComponent(jLabel10)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txt_cod_cancha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cmb_centros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2)))
@@ -205,7 +210,7 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                         .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8)
                         .addComponent(jLabel14)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_tarifa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -213,8 +218,8 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                    .addComponent(cmb_forma_paog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(btn_Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -228,23 +233,36 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
 
     private void btn_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AgregarActionPerformed
         cliente = new Cliente();
+        reservacion = new Reservacion();
+        
+        //Datos del Cliente 
         cliente.setNombre(txt_nombres.getText());
         cliente.setApellido(txt_apellidos.getText());
         cliente.setTelefono(txt_telefono.getText());
-        cliente.setDni(txt_dni.getText());
+        cliente.setDni(txt_dni.getText());   
+        
+        //Datos de la reservacion 
+        reservacion.setCentro(cmb_centros.getSelectedIndex());
+        reservacion.setCodigoCancha(txt_cod_cancha.getText());
+        reservacion.setHorario(cmb_horarios_disponibles.getSelectedIndex());   
+        int tarifa = Integer.parseInt(txt_tarifa.getText());
+        reservacion.setTarifa(tarifa);
+        reservacion.setFormatoPago(cmb_forma_paog.getSelectedIndex());   
+        this.padre.setReservacion(reservacion);
+        
+        
+               
+        
+        //cliente.getCentro(cmb_centros.getSelectedIndex());
         this.padre.setCliente(cliente);
         this.padre.setVisible(true);
-        this.setVisible(false);  
+        this.setVisible(false);
+        
         
         //JFrameReservaciones Reservaciones = new JFrameReservaciones();
         //Reservaciones.setLocationRelativeTo(this);
        // Reservaciones.setVisible(true);
         //this.setVisible(false);
-           
-        /*JFrameMetodoPago MetodoPago = new JFrameMetodoPago();
-        MetodoPago.setLocationRelativeTo(this);
-        MetodoPago.setVisible(true);
-        this.setVisible(false);*/
     }//GEN-LAST:event_btn_AgregarActionPerformed
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
@@ -298,8 +316,8 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
     private javax.swing.JButton btn_Agregar;
     private javax.swing.JButton btn_regresar;
     private javax.swing.JComboBox<String> cmb_centros;
+    private javax.swing.JComboBox<String> cmb_forma_paog;
     private javax.swing.JComboBox<String> cmb_horarios_disponibles;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -312,11 +330,11 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField txt_apellidos;
+    private javax.swing.JTextField txt_cod_cancha;
     private javax.swing.JTextField txt_dni;
     private javax.swing.JTextField txt_nombres;
+    private javax.swing.JTextField txt_tarifa;
     private javax.swing.JTextField txt_telefono;
     // End of variables declaration//GEN-END:variables
 }

@@ -183,7 +183,7 @@
     <Component class="javax.swing.JButton" name="btn_regresar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/reservacionlosadeportiva/pantallas/salida-de-la-puerta.png"/>
+          <Image iconType="3" name="/Imagenes/salida-de-la-puerta.png"/>
         </Property>
       </Properties>
       <Events>

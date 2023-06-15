@@ -70,7 +70,7 @@
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="txt_nombres" min="-2" max="-2" attributes="0"/>
@@ -122,7 +122,7 @@
     <Component class="javax.swing.JButton" name="btn_regresar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/reservacionlosadeportiva/pantallas/salida-de-la-puerta.png"/>
+          <Image iconType="3" name="/Imagenes/salida-de-la-puerta.png"/>
         </Property>
       </Properties>
       <Events>

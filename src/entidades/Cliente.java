@@ -29,8 +29,7 @@ public class Cliente extends DatosPersona{
     
     public String mostrarDatosClientes(){
         return this.getDni()+" | "+this.getNombre()+" | "
-                +this.getApellido()+" | "+this.getTelefono();
+                +this.getApellido()+" | "+this.getTelefono(); //+ " | "+this.getCentro;
     }
-    
     
 }
