@@ -6,7 +6,6 @@
 package reservacionlosadeportiva.pantallas;
 
 import entidades.Cliente;
-import entidades.Reservacion;
 //import entidades.Reservacion;
 import javax.swing.DefaultListModel;
 
@@ -18,7 +17,6 @@ import javax.swing.DefaultListModel;
 public class JFrameNuevaReservacion extends javax.swing.JFrame {
 
     private Cliente cliente;
-    private Reservacion reservacion;
     private JFrameReservaciones padre;
     DefaultListModel modeloLista = new DefaultListModel();
     
@@ -233,7 +231,6 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
 
     private void btn_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AgregarActionPerformed
         cliente = new Cliente();
-        reservacion = new Reservacion();
         
         //Datos del Cliente 
         cliente.setNombre(txt_nombres.getText());
@@ -242,13 +239,14 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
         cliente.setDni(txt_dni.getText());   
         
         //Datos de la reservacion 
-        reservacion.setCentro(cmb_centros.getSelectedIndex());
-        reservacion.setCodigoCancha(txt_cod_cancha.getText());
-        reservacion.setHorario(cmb_horarios_disponibles.getSelectedIndex());   
+        cliente.setCentro(cmb_centros.getSelectedIndex());
+        cliente.setCodigoCancha(txt_cod_cancha.getText());
+        cliente.setHorario(cmb_horarios_disponibles.getSelectedIndex());   
         int tarifa = Integer.parseInt(txt_tarifa.getText());
-        reservacion.setTarifa(tarifa);
-        reservacion.setFormatoPago(cmb_forma_paog.getSelectedIndex());   
-        this.padre.setReservacion(reservacion);
+        cliente.setTarifa(tarifa);
+        
+        cliente.setFormatoPago(cmb_forma_paog.getSelectedIndex());   
+        //this.padre.setReservacion(reservacion);
         
         
                

@@ -9,7 +9,7 @@ package entidades;
  *
  * @author Piero354
  */
-public class Usuario extends DatosPersona{
+public class Usuario extends Cliente{ // Esta parte sera para el encargado, esta ira conectada a un Base Dato
 
     private String correo;
     private String username;

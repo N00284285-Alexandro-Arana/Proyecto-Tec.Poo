@@ -6,7 +6,6 @@
 package reservacionlosadeportiva.pantallas;
 
 import entidades.Cliente;
-import entidades.Reservacion;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -17,10 +16,10 @@ import javax.swing.DefaultListModel;
  */
 public class JFrameReservaciones extends javax.swing.JFrame {
 
-    
+    private Cliente cliente;
     List<Cliente> clientes = new ArrayList<>();
-    List<Reservacion> reservaciones = new ArrayList<>();
     DefaultListModel modeloLista = new DefaultListModel();
+    
     /**
      * Creates new form JFrameReservaciones
      */
@@ -52,7 +51,7 @@ public class JFrameReservaciones extends javax.swing.JFrame {
         btn_soporte = new javax.swing.JButton();
         cancha = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
@@ -118,7 +117,7 @@ public class JFrameReservaciones extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/variante-de-balon-de-futbol.png"))); // NOI18N
 
-        jLabel5.setText("...");
+        lblTotal.setText("...");
 
         jLabel6.setText("Total");
 
@@ -151,7 +150,7 @@ public class JFrameReservaciones extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabel5))
+                                        .addComponent(lblTotal))
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,7 +192,7 @@ public class JFrameReservaciones extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
+                            .addComponent(lblTotal)
                             .addComponent(jLabel6))
                         .addContainerGap(23, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -232,6 +231,7 @@ public class JFrameReservaciones extends javax.swing.JFrame {
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
         // TODO add your handling code here:
+        Buscar();
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_actualizar_listaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizar_listaActionPerformed
@@ -246,6 +246,21 @@ public class JFrameReservaciones extends javax.swing.JFrame {
         }
     }
     
+    void Buscar(){
+        modeloLista.removeAllElements();
+        for(Cliente listaCliente: clientes){
+            if (listaCliente.getDni().toLowerCase().contains(txt_buscar.getText())) {
+                modeloLista.addElement(listaCliente.mostrarDatosClientes());
+            }
+        }
+    }
+    
+    public int Sumar(){
+        cliente = new Cliente();
+        //int tarifa = Integer.parseInt(txt_tarifa.getText());
+;       return 1;
+    }
+    
     
     
     
@@ -254,9 +269,9 @@ public class JFrameReservaciones extends javax.swing.JFrame {
         
     }
     
-    void setReservacion(Reservacion reservacion){
+    /*void setReservacion(Reservacion reservacion){
         reservaciones.add(reservacion);
-    }
+    }*/
     
     
     
@@ -311,9 +326,9 @@ public class JFrameReservaciones extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblTotal;
     private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables
 }
