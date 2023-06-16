@@ -75,8 +75,8 @@ public class Cliente extends Reservacion{
     
     public String mostrarDatosClientes(){
         return this.getDni() +" | "+this.getNombre()+" | "+this.getApellido()+" | "
-                +this.getTelefono()+" | "+this.getCentro()+ " | "
-                +this.getCodigoCancha()+" | "+this.getHorarioElegido()+" | "+this.getFormatoPago()+" | S/."+this.getTarifa(); //+ " | "+this.getCentro;
+                +this.getTelefono()+" | "+this.getNombreCentro()+ " | "
+                +this.getCodigoCancha()+" | "+this.getHorarioElegido()+" | "+this.getFormaPago()+" | S/."+this.getTarifa(); //+ " | "+this.getCentro;
     }
     
 }

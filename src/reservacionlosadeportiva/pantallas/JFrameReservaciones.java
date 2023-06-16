@@ -52,11 +52,13 @@ public class JFrameReservaciones extends javax.swing.JFrame {
         cancha = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lbl_TotalReservacionesDia = new javax.swing.JLabel();
+        btn_quitar_reservacion1 = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("RESERVACIONES");
@@ -119,7 +121,10 @@ public class JFrameReservaciones extends javax.swing.JFrame {
 
         lblTotal.setText("...");
 
-        jLabel6.setText("Total");
+        lbl_TotalReservacionesDia.setText("...");
+
+        btn_quitar_reservacion1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btn_quitar_reservacion1.setText("IMPRIMIR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,21 +151,23 @@ public class JFrameReservaciones extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblTotal))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(btn_agregar_reservacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btn_quitar_reservacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btn_actualizar_lista, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(btn_soporte)
-                                        .addGap(11, 11, 11)))))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbl_TotalReservacionesDia)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblTotal)
+                                        .addGap(30, 30, 30)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btn_agregar_reservacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_quitar_reservacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_actualizar_lista, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn_quitar_reservacion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(btn_soporte)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -191,19 +198,20 @@ public class JFrameReservaciones extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTotal)
-                            .addComponent(jLabel6))
-                        .addContainerGap(23, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lbl_TotalReservacionesDia)
+                                .addComponent(btn_soporte))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_agregar_reservacion)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_quitar_reservacion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_actualizar_lista)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_soporte)
-                        .addGap(16, 16, 16))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_quitar_reservacion1)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -214,19 +222,17 @@ public class JFrameReservaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_regresarActionPerformed
 
     private void btn_soporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_soporteActionPerformed
-        JFrameSoporteTecnico Soporte = new JFrameSoporteTecnico();
+        JFrameSoporteTecnico Soporte = new JFrameSoporteTecnico(this);
         Soporte.setLocationRelativeTo(this);
         Soporte.setVisible(true);
-        this.setVisible(false);
-               
+        this.setVisible(false);           
     }//GEN-LAST:event_btn_soporteActionPerformed
 
     private void btn_agregar_reservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_reservacionActionPerformed
         JFrameNuevaReservacion NuevaReservacion = new JFrameNuevaReservacion(this);
         NuevaReservacion.setLocationRelativeTo(this);
         NuevaReservacion.setVisible(true);
-        this.setVisible(false);
-        
+        this.setVisible(false);     
     }//GEN-LAST:event_btn_agregar_reservacionActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
@@ -236,7 +242,9 @@ public class JFrameReservaciones extends javax.swing.JFrame {
 
     private void btn_actualizar_listaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizar_listaActionPerformed
         // TODO add your handling code here:
-        actulizarList();
+        actulizarList();        
+        Sumar();
+        TotalReservacionesDia();
     }//GEN-LAST:event_btn_actualizar_listaActionPerformed
     
     void actulizarList(){
@@ -255,10 +263,20 @@ public class JFrameReservaciones extends javax.swing.JFrame {
         }
     }
     
-    public int Sumar(){
-        cliente = new Cliente();
-        //int tarifa = Integer.parseInt(txt_tarifa.getText());
-;       return 1;
+    void Sumar(){
+        int tam = clientes.size();
+        int count = 0;
+        String TotalActulizado;
+        for (int i = 0; i < tam; i++) {
+            count+=clientes.get(i).getTarifa();
+        }   
+        TotalActulizado = Integer.toString(count);
+        lblTotal.setText("Total S/."+TotalActulizado); //
+    }
+    
+    void TotalReservacionesDia(){
+        String TotalReserva = Integer.toString(clientes.size());
+        lbl_TotalReservacionesDia.setText("Total Reservas: "+TotalReserva);
     }
     
     
@@ -319,6 +337,7 @@ public class JFrameReservaciones extends javax.swing.JFrame {
     private javax.swing.JButton btn_agregar_reservacion;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_quitar_reservacion;
+    private javax.swing.JButton btn_quitar_reservacion1;
     private javax.swing.JButton btn_regresar;
     private javax.swing.JButton btn_soporte;
     private javax.swing.JLabel cancha;
@@ -326,9 +345,9 @@ public class JFrameReservaciones extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTotal;
+    private javax.swing.JLabel lbl_TotalReservacionesDia;
     private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables
 }

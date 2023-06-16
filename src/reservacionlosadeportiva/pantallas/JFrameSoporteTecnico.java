@@ -10,12 +10,14 @@ package reservacionlosadeportiva.pantallas;
  * @author Piero354
  */
 public class JFrameSoporteTecnico extends javax.swing.JFrame {
-
+    
+    private JFrameReservaciones padre;
     /**
      * Creates new form JFrameSoporteTecnico
      */
-    public JFrameSoporteTecnico() {
+    public JFrameSoporteTecnico(JFrameReservaciones padre) {
         initComponents();
+        this.padre=padre;
     }
 
     /**
@@ -146,13 +148,13 @@ public class JFrameSoporteTecnico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
-        JFrameReservaciones Reservaciones = new JFrameReservaciones();
+        JFrameReservaciones Reservaciones = padre;
         Reservaciones.setLocationRelativeTo(this);//Centra
         Reservaciones.setVisible(true);
         this.setVisible(false); //Oculta
-        
     }//GEN-LAST:event_btn_regresarActionPerformed
-
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -183,7 +185,7 @@ public class JFrameSoporteTecnico extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameSoporteTecnico().setVisible(true);
+                new JFrameSoporteTecnico(new JFrameReservaciones()).setVisible(true);
             }
         });
     }

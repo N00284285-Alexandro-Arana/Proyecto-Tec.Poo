@@ -13,6 +13,8 @@ public class Reservacion {
     private String codigoCancha;
     private int tarifa;
     private int horario;
+    private int formatoPago;
+    private int centro;
     
     private final int ocho_9 = 0 ;
     private final int nueve_10= 1 ;
@@ -22,6 +24,16 @@ public class Reservacion {
     private final int tres_4= 5 ;
     private final int cuatro_5 = 6 ;
     private final int cinco_6 = 7 ;
+    
+    private final int Efectivo = 0 ;
+    private final int Yape_Plin = 1 ;
+    private final int Visa = 2 ;
+    
+    private final int SJL_ZARATE = 0 ;
+    private final int SJL_LOS_JARDINES = 1 ;
+    private final int SJL_LAS_FLORES = 2 ;
+    private final int SJL_SAN_MARTIN = 3 ;
+    private final int SJL_SAN_CARLOS = 4 ;
     
     public String getHorarioElegido() {
         String horaElegida = "";
@@ -53,13 +65,7 @@ public class Reservacion {
         }
         return "Horario: "+ horaElegida;
     }
-    
-    private int formatoPago;
-    
-    private final int Efectivo = 0;
-    private final int Yape_Plin = 1;
-    private final int Visa = 2;
-    
+      
     public String getFormaPago() {
         String formaPago = "";
         switch(formatoPago){
@@ -75,15 +81,7 @@ public class Reservacion {
         }
         return "Pagó: " + formaPago;
     }          
-    
-    private int centro;
-    
-    private final int SJL_ZARATE = 0 ;
-    private final int SJL_LOS_JARDINES = 1 ;
-    private final int SJL_LAS_FLORES = 2 ;
-    private final int SJL_SAN_MARTIN = 3 ;
-    private final int SJL_SAN_CARLOS = 4 ;
-    
+     
     public String getNombreCentro() {
         String nombreCentro = "";
         switch(centro){
@@ -175,11 +173,4 @@ public class Reservacion {
     public void setFormatoPago(int formatoPago) {
         this.formatoPago = formatoPago;
     }
-    
-    public String mostrarDatosReserva(){
-        
-        return this.getCodigoCancha()+" | "+this.getFormaPago()+" | "
-                +this.getHorarioElegido()+" | "+this.getNombreCentro()+" | S/."+this.getTarifa();
-    }
-
 }

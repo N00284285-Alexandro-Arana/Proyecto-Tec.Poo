@@ -8,6 +8,9 @@ package reservacionlosadeportiva.pantallas;
 import entidades.Cliente;
 //import entidades.Reservacion;
 import javax.swing.DefaultListModel;
+import excepciones.Utilitario;
+import ExcepcionesPersonalizadas.ExcepcionGenerica;
+import ExcepcionesPersonalizadas.ExcepcionNumerica;
 
 
 /**
@@ -23,8 +26,6 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
     /**
      * Creates new form JFrameAgregarReservacion
      */
-    
-    
     public JFrameNuevaReservacion(JFrameReservaciones padre){
         initComponents();
         this.padre=padre;
@@ -142,31 +143,28 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
                             .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel10)
+                                .addComponent(jLabel2)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(8, 8, 8)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel14)
+                                .addComponent(jLabel9)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmb_forma_paog, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cmb_centros, 0, 131, Short.MAX_VALUE)
+                                .addComponent(txt_cod_cancha)
+                                .addComponent(cmb_horarios_disponibles, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel9))
+                                .addComponent(txt_tarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cmb_forma_paog, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel2)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(8, 8, 8)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cmb_centros, 0, 131, Short.MAX_VALUE)
-                                        .addComponent(txt_cod_cancha)
-                                        .addComponent(cmb_horarios_disponibles, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txt_tarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel12))))))
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12))))
                         .addContainerGap(16, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(245, 245, 245)
@@ -230,49 +228,40 @@ public class JFrameNuevaReservacion extends javax.swing.JFrame {
     }//GEN-LAST:event_cmb_centrosActionPerformed
 
     private void btn_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AgregarActionPerformed
-        cliente = new Cliente();
-        
+        try {   
+         cliente = new Cliente();
         //Datos del Cliente 
         cliente.setNombre(txt_nombres.getText());
         cliente.setApellido(txt_apellidos.getText());
         cliente.setTelefono(txt_telefono.getText());
         cliente.setDni(txt_dni.getText());   
-        
-        //Datos de la reservacion 
         cliente.setCentro(cmb_centros.getSelectedIndex());
         cliente.setCodigoCancha(txt_cod_cancha.getText());
         cliente.setHorario(cmb_horarios_disponibles.getSelectedIndex());   
-        int tarifa = Integer.parseInt(txt_tarifa.getText());
-        cliente.setTarifa(tarifa);
+        int tarifa = Utilitario.convertir(txt_tarifa.getText());
+        cliente.setTarifa(tarifa);    //
+        cliente.setFormatoPago(cmb_forma_paog.getSelectedIndex());
         
-        cliente.setFormatoPago(cmb_forma_paog.getSelectedIndex());   
-        //this.padre.setReservacion(reservacion);
-        
-        
-               
-        
-        //cliente.getCentro(cmb_centros.getSelectedIndex());
         this.padre.setCliente(cliente);
         this.padre.setVisible(true);
         this.setVisible(false);
         
-        
-        //JFrameReservaciones Reservaciones = new JFrameReservaciones();
-        //Reservaciones.setLocationRelativeTo(this);
-       // Reservaciones.setVisible(true);
-        //this.setVisible(false);
+        } catch (ExcepcionNumerica e) {
+            System.err.println(e.getMessage());
+            
+        }catch(ExcepcionGenerica e){
+            System.err.println(e.getMessage());
+        }
     }//GEN-LAST:event_btn_AgregarActionPerformed
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
-       JFrameReservaciones Reservaciones = new JFrameReservaciones();
+        JFrameReservaciones Reservaciones = padre;
         Reservaciones.setLocationRelativeTo(this);
         Reservaciones.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_regresarActionPerformed
-
-    void guardar(){
     
-    }
+    
     
     /**
      * @param args the command line arguments
